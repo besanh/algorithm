@@ -38,7 +38,7 @@ permissions:
   id-token: write
 
 jobs:
-  print-username:
+  print-info:
     runs-on: besanh-cicd
     steps:
       - name: Print input name to STDOUT
@@ -49,6 +49,7 @@ jobs:
           echo label is: ${{inputs.label}}
   notify:
     runs-on: besanh-cicd
+    needs: print-info
     steps:
       - name: Notification CI
         uses: appleboy/telegram-action@master
