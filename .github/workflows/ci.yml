@@ -4,15 +4,9 @@ on:
   push:
     branches: 
       - "main"
-  pull:
+  pull_request:
     branches:
       - "main"
-
-  # sets permissions of GITHUB_TOKEN  to allow deployment
-  permissions:
-    contents: read
-    pages: write
-    id-token: write
 
   # reuse workflow
   workflow_call:
@@ -36,6 +30,12 @@ on:
       label:
         description: "second job output"
         value: ${{jobs.my_job.outputs.job_ouput2}}
+
+# sets permissions of GITHUB_TOKEN  to allow deployment
+permissions:
+  contents: read
+  pages: write
+  id-token: write
 
 jobs:
   print-username:
