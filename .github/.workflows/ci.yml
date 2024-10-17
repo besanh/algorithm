@@ -1,0 +1,60 @@
+name: CI Algorithm notification
+
+on:
+  push:
+    branches: ["*"]
+    branches-ignore: []
+    tags: []
+    tags-ignore: []
+  pull:
+    branches: ["*"]
+    branches-ignore: ["test"]
+    tags: []
+    tags-ignore: []
+
+  # sets permissions of GITHUB_TOKEN  to allow deployment
+  permissions:
+    contents: read
+    pages: write
+    id-token: write
+
+  # reuse workflow
+  workflow_call:
+    inputs:
+      username:
+        description: "Username call workflow"
+        default: "Bes Anh"
+        required: true
+        type: string
+      label:
+        description: "Label call workflow"
+        default: "test"
+        required: false
+        type: string
+
+    # Map the workflow outputs to job outputs
+    outputs:
+      username:
+        description: "first job output"
+        value: ${{jobs.my_job.outputs.job_ouput1}}
+      label:
+        description: "second job output"
+        value: ${{jobs.my_job.outputs.job_ouput2}}
+
+jobs:
+  print-username:
+    runs-on: besanh-cicd
+    steps:
+      - name: Print input name to STDOUT
+        run:
+          echo username is: ${ { $input.username } }
+      - name: Print input label to STDOUT
+        run:
+          echo label is: ${ { input.label } }
+  notify:
+    runs-on: besanh-cicd
+    steps:
+      - name: Notification CI 
+        uses: appleboy/telegram-action@master
+        with:
+          go-version: 1.22.x
