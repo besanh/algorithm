@@ -4,13 +4,9 @@ on:
   push:
     branches: ["*"]
     branches-ignore: ["test"]
-    tags: []
-    tags-ignore: []
   pull:
     branches: ["*"]
     branches-ignore: ["test"]
-    tags: []
-    tags-ignore: []
 
   # sets permissions of GITHUB_TOKEN  to allow deployment
   permissions:
@@ -46,11 +42,11 @@ jobs:
     runs-on: besanh-cicd
     steps:
       - name: Print input name to STDOUT
-        run:
-          echo username is: ${{$input.username}}
+        run: |
+          echo username is: ${{inputs.username}}
       - name: Print input label to STDOUT
-        run:
-          echo label is: ${{input.label}}
+        run: |
+          echo label is: ${{inputs.label}}
   notify:
     runs-on: besanh-cicd
     steps:
