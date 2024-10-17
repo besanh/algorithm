@@ -2,11 +2,13 @@ name: CI Algorithm notification
 
 on:
   push:
-    branches: ["*"]
-    branches-ignore: ["test"]
+    branches: 
+      - "main"
+    branches-ignore:
+      - "test"
   pull:
-    branches: ["*"]
-    branches-ignore: ["test"]
+    branches:
+      - "main"
 
   # sets permissions of GITHUB_TOKEN  to allow deployment
   permissions:
