@@ -1,6 +1,9 @@
-package main
+package week1
 
-func findMedian(nums []int) int {
+/**
+* Complete the 'findMedian' function below.
+ */
+func FindMedian(nums []int) int {
 	result := 0
 	nums = bubleSort(nums)
 	if len(nums)%2 == 0 {

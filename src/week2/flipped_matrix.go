@@ -9,7 +9,7 @@ package week2
 /**
 * Get 4 corners by moving the nxn matrix
  */
-func flippingMatrix(matrix [][]int32) int32 {
+func FlippingMatrix(matrix [][]int32) int32 {
 	// Write your code here
 	// Chieu dai cua matrix con nam ben trai
 	n := len(matrix) / 2
