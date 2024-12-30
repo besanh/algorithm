@@ -7,7 +7,7 @@ package week2
  * The function accepts 2D_INTEGER_ARRAY matrix as parameter.
  */
 /**
-* Get 4 corners by moving the nxn matrix
+ * Get 4 corners by moving the nxn matrix
  */
 func FlippingMatrix(matrix [][]int32) int32 {
 	// Write your code here
@@ -18,6 +18,7 @@ func FlippingMatrix(matrix [][]int32) int32 {
 	// 2 loops duyet qua tung phan tu cua matrix con
 	for i := 0; i < n; i++ {
 		for j := 0; j < n; j++ {
+			// Lat cot, hang => tim diem doi xung
 			rs := maxPosition(
 				// Top left
 				int(matrix[i][j]),
