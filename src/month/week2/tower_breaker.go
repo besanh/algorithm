@@ -2,8 +2,10 @@ package week2
 
 /*
  * Game theory
- *
- *
+ * n = 3, m = 2
+ * Output: 1
+ * n = 4, m = 1
+ * Output: 2
  */
 func TowerBreakers(n int32, m int32) int32 {
 	// Write your code here
