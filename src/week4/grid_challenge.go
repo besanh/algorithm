@@ -18,9 +18,11 @@ func GridChallenge(grid []string) string {
 	}
 
 	n, m := len(grid), len(grid[0])
-	for i := 0; i < m; i++ {
-		for j := 0; j < n-1; j++ {
-			if grid[j][i] > grid[j+1][i] {
+	// Don't need to check the last row
+	for i := 0; i < n-1; i++ {
+		for j := 0; j < m; j++ {
+			// Check in same column, if next row is smaller, it means not sorted
+			if grid[i][j] > grid[i+1][j] {
 				return "NO"
 			}
 		}
