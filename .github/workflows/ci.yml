@@ -1,35 +1,12 @@
-name: CI Algorithm notification
+name: CI Algorithm notification of Leetcode
 
 on:
   push:
     branches: 
-      - "main"
+      - "leetcode"
   pull_request:
     branches:
-      - "main"
-
-  # reuse workflow
-  workflow_call:
-    inputs:
-      username:
-        description: "Username call workflow"
-        default: "Bes Anh"
-        required: true
-        type: string
-      label:
-        description: "Label call workflow"
-        default: "test"
-        required: false
-        type: string
-
-    # Map the workflow outputs to job outputs
-    outputs:
-      username:
-        description: "first job output"
-        value: ${{jobs.my_job.outputs.job_ouput1}}
-      label:
-        description: "second job output"
-        value: ${{jobs.my_job.outputs.job_ouput2}}
+      - "leetcode"
 
 # sets permissions of GITHUB_TOKEN  to allow deployment
 permissions:
@@ -38,18 +15,9 @@ permissions:
   id-token: write
 
 jobs:
-  print-info:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Print input name to STDOUT
-        run: |
-          echo username is: ${{inputs.username}}
-      - name: Print input label to STDOUT
-        run: |
-          echo label is: ${{inputs.label}}
   notify:
     runs-on: ubuntu-latest
-    needs: print-info
+    needs: []
     steps:
       - name: Notification CI
         uses: appleboy/telegram-action@master
