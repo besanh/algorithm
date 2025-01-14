@@ -16,7 +16,9 @@ func AddSpaces(s string, spaces []int) string {
 	for i := 0; i < len(s); i++ {
 		if spaceIdx < n && i == spaces[spaceIdx] {
 			sb.WriteByte(' ')
+			spaceIdx++
 		}
+
 		sb.WriteByte(s[i])
 	}
 
