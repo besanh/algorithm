@@ -26,3 +26,24 @@ func TruckTour(petrolpumps [][]int32) int32 {
 
 	return -1
 }
+
+// leetcode
+func CanCompleteCircuit(gas []int, cost []int) int {
+	start, totalTank, currentTank := 0, 0, 0
+
+	for i, item := range gas {
+		totalTank += item - cost[i]
+		currentTank += item - cost[i]
+
+		if currentTank < 0 {
+			start = i + 1
+			currentTank = 0
+		}
+	}
+
+	if totalTank < 0 {
+		return -1
+	}
+
+	return start
+}
