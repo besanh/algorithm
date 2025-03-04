@@ -4,8 +4,9 @@ package medium
  * Problem: https://leetcode.com/problems/minimum-size-subarray-sum/?envType=problem-list-v2&envId=array
  * Reference: https://app.diagrams.net/#G1eKRONRBBid0_9h5cvYrpOvIJu5kBQ9zJ#%7B%22pageId%22%3A%22LCAZqEOmr3nNQPfN1sSf%22%7D
  * Approach: use sliding window
- * Time complexity: O(n)
- * Space complexity: O(1)
+ * Time complexity: O(n). Because I iterate through the array once, inside the loop, I have at most two nested loops.
+ * => O(n+n) = O(n)
+ * Space complexity: O(1). Because I only declare 4 variables.
  * DSA: Sliding Window
  */
 func MinSubArrayLen(target int, nums []int) int {
